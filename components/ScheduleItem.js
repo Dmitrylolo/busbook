@@ -26,8 +26,8 @@ export class ScheduleItem extends Component {
 
 const styles = StyleSheet.create({
   buttonContainer: {
-    paddingTop: 30,
-    paddingBottom: 30,
+    paddingTop: 7,
+    paddingBottom: 7,
     paddingLeft: 10,
     paddingRight: 10,
     marginBottom: 1,

@@ -7,6 +7,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Button,
 } from 'react-native';
 import { WebBrowser } from 'expo';
 
@@ -14,6 +15,9 @@ import { WebBrowser } from 'expo';
 import { SideButton } from '../components/SideButton';
 import { ScheduleItem } from '../components/ScheduleItem';
 import { TransportButton } from '../components/TransportButton';
+import { CityFrom } from '../components/CityFrom';
+import { CityTo } from '../components/CityTo';
+import { DirectionButton } from '../components/DirectionButton';
 
 export default class HomeScreen extends Component {
   static navigationOptions = {
@@ -34,12 +38,17 @@ export default class HomeScreen extends Component {
 
         <View style={styles.topRow}>
           <TransportButton tapHandler={this.transportClickHandler.bind(this)} />
-          <Text> Dima to do</Text>
+           <View style={styles.direction}>
+
+            <CityFrom style={styles.cityDropDown}/>
+            <DirectionButton/>
+            <CityTo style={styles.cityDropDown}/>
+            </View>
         </View>
 
         <View style={styles.contentRow}>
           <View style={styles.buttonBar}>
-            <SideButton title="Пр" onPressHandler={ this.weekDayClickHandler.bind(this) } />
+            <SideButton title="Пн" onPressHandler={ this.weekDayClickHandler.bind(this) } />
             <SideButton title="Вт" onPressHandler={ this.weekDayClickHandler.bind(this) } />
             <SideButton title="Ср" onPressHandler={ this.weekDayClickHandler.bind(this) } />
             <SideButton title="Чт" onPressHandler={ this.weekDayClickHandler.bind(this) } />
@@ -134,23 +143,32 @@ export default class HomeScreen extends Component {
 }
 
 const styles = StyleSheet.create({
+  cityDropDown: {
+    flex:1,
+    width:50,
+  },
   container: {
     flex: 1,
     flexDirection: 'column',
-    paddingTop: 30,
+    paddingTop: 15,
     backgroundColor: '#fff',
   },
-
   topRow: {
     flex: 1,
     flexDirection: 'row',
+  },
+  direction: {
+    flex: 2,
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
   contentRow: {
     flex: 10,
     flexDirection: 'row',
   },
-
-
+  cityDropDown: {
+    flex: 1,
+  },
 
   buttonBar:{
     flex: 1,
