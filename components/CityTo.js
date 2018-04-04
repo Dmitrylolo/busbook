@@ -3,8 +3,15 @@ import { View, Text, TouchableHighlight, StyleSheet, Picker } from 'react-native
 import { Dropdown } from 'react-native-material-dropdown';
 
 export class CityTo extends Component {
-  onChangeText(){
+  constructor(props) {
+    super(props);
+    this.state = {cityTo: 'Славутич'};
+  }
 
+
+  onChangeText(data){
+    this.setState({cityTo: data})
+    return console.log(this.state.cityTo)
   }
 
   render() {
@@ -26,9 +33,9 @@ export class CityTo extends Component {
     return (
          <View style={styles.dropDown}>
             <Dropdown style={styles.aaa}
-              value={'Киев'}
+              value={this.state.cityTo}
               label={'откуда'}
-              onChangeText={this.onChangeText}
+              onChangeText={this.onChangeText.bind(this)}
               data={data}
               selectedItemColor={'purple'}
               dropdownOffset= {{top :12, left: 0}}

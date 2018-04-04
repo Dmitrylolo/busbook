@@ -12,11 +12,11 @@ export class ScheduleItem extends Component {
           <View style={styles.buttonContainer}>
               <View style={styles.timeContainer}>
                 <View style={styles.timeItem}>
-                    <Text style={styles.sheludeText}>otpravlenie</Text>
+                    <Text style={styles.sheludeText}>Отправление</Text>
                     <Text style={styles.timeText}>12:30</Text>
                   </View>
                   <View style={styles.timeItem}>
-                    <Text style={styles.sheludeText}>pribitie</Text>
+                    <Text style={styles.sheludeText}>Прибытие</Text>
                     <Text style={styles.timeText}>14:30</Text>
                   </View>    
               </View>
