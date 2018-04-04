@@ -4,8 +4,9 @@ import { Dropdown } from 'react-native-material-dropdown';
 
 export class CityTo extends Component {
   constructor(props) {
-    super(props);
-    this.state = {cityTo: 'Славутич'};
+    super(props)
+    this.state = {cityTo: 'Славутич'}
+    this.onChangeText = () => this.onChangeText()
   }
 
 
@@ -35,7 +36,7 @@ export class CityTo extends Component {
             <Dropdown style={styles.aaa}
               value={this.state.cityTo}
               label={'откуда'}
-              onChangeText={this.onChangeText.bind(this)}
+              onChangeText={this.onChangeText}
               data={data}
               selectedItemColor={'purple'}
               dropdownOffset= {{top :12, left: 0}}
