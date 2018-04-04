@@ -10,13 +10,19 @@ export class ScheduleItem extends Component {
     return (
         <TouchableHighlight onPress={this._onPressButton} underlayColor="white">
           <View style={styles.buttonContainer}>
-            <View style={styles.timeItem}>
-              <Text style={styles.directionText}>otpravlenie</Text>
-              <Text style={styles.timeText}>12:30</Text>
-            </View>
-            <View style={styles.timeItem}>
-              <Text style={styles.directionText}>pribitie</Text>
-              <Text style={styles.timeText}>14:30</Text>
+              <View style={styles.timeContainer}>
+                <View style={styles.timeItem}>
+                    <Text style={styles.sheludeText}>otpravlenie</Text>
+                    <Text style={styles.timeText}>12:30</Text>
+                  </View>
+                  <View style={styles.timeItem}>
+                    <Text style={styles.sheludeText}>pribitie</Text>
+                    <Text style={styles.timeText}>14:30</Text>
+                  </View>    
+              </View>
+            <View style={styles.realDirection}>
+              <Text style={styles.realDirectionText}>Направление: </Text>
+              <Text style={styles.realDirectionText}>Славутич - Чернигов</Text>
             </View>
           </View>
         </TouchableHighlight>
@@ -33,13 +39,24 @@ const styles = StyleSheet.create({
     marginBottom: 1,
     backgroundColor: '#ccc',
     flex: 1,
-    flexDirection: 'row',
+    flexDirection: 'column',
   },
-
-  directionText:{
+  timeContainer: {
+    flex: 1,
+    flexDirection:'row',
+  },
+  sheludeText:{
     color: 'red',
     fontSize: 12,
     textAlign: 'center',
+  },
+  realDirection:{
+    flex: 1,
+    flexDirection:'row',
+  },
+  realDirectionText: {
+    color:'grey',
+    fontSize: 12,
   },
   timeItem: {
     flex: 1,

@@ -19,6 +19,13 @@ import { CityFrom } from '../components/CityFrom';
 import { CityTo } from '../components/CityTo';
 import { DirectionButton } from '../components/DirectionButton';
 
+
+/*tests*/
+
+import { DropDownTezt } from '../components/DropDownTezt';
+
+
+
 export default class HomeScreen extends Component {
   static navigationOptions = {
     header: null,
@@ -59,6 +66,9 @@ export default class HomeScreen extends Component {
 
           <View style={styles.dataBar}>
             <ScrollView style={styles.dataBarContent}>
+              <DropDownTezt />
+
+
               <ScheduleItem />
               <ScheduleItem />
               <ScheduleItem />
