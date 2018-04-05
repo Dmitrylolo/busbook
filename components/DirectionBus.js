@@ -54,7 +54,7 @@ export class DirectionBus extends Component {
         <View style={styles.ddMenu}>
             <Dropdown
               value={this.state.cityFrom}
-              label={'откуда'}
+              label={cityFromText}
               onChangeText={this.onChangeCityFrom}
               data={data}
               selectedItemColor={'purple'}
@@ -70,7 +70,7 @@ export class DirectionBus extends Component {
         <View style={styles.ddMenu}>
             <Dropdown
               value={this.state.cityTo}
-              label={'откуда'}
+              label={cityToText}
               onChangeText={this.onChangeCityTo}
               data={data}
               selectedItemColor={'purple'}
@@ -83,6 +83,9 @@ export class DirectionBus extends Component {
     )
   }
 }
+
+const cityToText = 'Куда:'
+const cityFromText = 'Откуда:'
 
 const styles = StyleSheet.create({
   dropDown: {
