@@ -40,14 +40,12 @@ export default class HomeScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-
         <View style={styles.topRow}>
           <TransportButton tapHandler={this.transportClickHandler.bind(this)} />
            <View style={styles.direction}>
             <DirectionBus />
             </View>
         </View>
-
         <View style={styles.contentRow}>
           <View style={styles.buttonBar}>
             <SideButton title="Пн" onPressHandler={ this.weekDayClickHandler.bind(this) } />
@@ -61,7 +59,8 @@ export default class HomeScreen extends Component {
 
           <View style={styles.dataBar}>
             <ScrollView style={styles.dataBarContent}>
-              <DropDownTezt />
+
+
 
 
               <ScheduleItem />
@@ -155,12 +154,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    paddingTop: 15,
+    paddingTop: 25,
     backgroundColor: '#fff',
   },
   topRow: {
     flex: 1,
     flexDirection: 'row',
+    paddingBottom: 5,
+    justifyContent: 'space-between',
   },
   direction: {
     flex: 2,

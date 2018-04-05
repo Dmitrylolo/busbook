@@ -31,7 +31,7 @@ export class DirectionBus extends Component {
   }
 
   onChangeCityTo (data) {
-    this.setState({cityFrom: data})
+    this.setState({cityTo: data})
     console.log(this.state.cityTo)
   }
 
@@ -68,7 +68,7 @@ export class DirectionBus extends Component {
         <FontAwesomeIcon name={'exchange'} style={styles.directionButtonText} />
       </TouchableHighlight>
         <View style={styles.ddMenu}>
-            <Dropdown style ={styles.ddMenu}
+            <Dropdown
               value={this.state.cityTo}
               label={'откуда'}
               onChangeText={this.onChangeCityTo}
@@ -90,10 +90,12 @@ const styles = StyleSheet.create({
     flexDirection:'row',
   },
   directionButtonText:{
-    fontSize:26,
+    fontSize:20,
   },
   ddMenu: {
     flex:1,
+    padding: 5,
+
   },
   directionButton: {
     flex: .4,
@@ -101,5 +103,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'row',
     backgroundColor:'lightgrey',
+    borderRadius: 100,
+    borderWidth: 1,
+    borderColor: 'black',
+    padding: 2,
   },
 })
