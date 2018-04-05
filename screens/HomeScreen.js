@@ -15,9 +15,7 @@ import { WebBrowser } from 'expo';
 import { SideButton } from '../components/SideButton';
 import { ScheduleItem } from '../components/ScheduleItem';
 import { TransportButton } from '../components/TransportButton';
-import { CityFrom } from '../components/CityFrom';
-import { CityTo } from '../components/CityTo';
-import { DirectionButton } from '../components/DirectionButton';
+import { DirectionBus } from '../components/DirectionBus';
 
 
 /*tests*/
@@ -46,10 +44,7 @@ export default class HomeScreen extends Component {
         <View style={styles.topRow}>
           <TransportButton tapHandler={this.transportClickHandler.bind(this)} />
            <View style={styles.direction}>
-
-            <CityFrom style={styles.cityDropDown}/>
-            <DirectionButton/>
-            <CityTo style={styles.cityDropDown}/>
+            <DirectionBus />
             </View>
         </View>
 
@@ -176,10 +171,6 @@ const styles = StyleSheet.create({
     flex: 10,
     flexDirection: 'row',
   },
-  cityDropDown: {
-    flex: 1,
-  },
-
   buttonBar:{
     flex: 1,
     flexDirection: 'column',
