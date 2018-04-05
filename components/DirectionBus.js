@@ -4,50 +4,92 @@ import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import { Dropdown } from 'react-native-material-dropdown';
 
 export class DirectionBus extends Component {
-    constructor(props) {
-      super(props)
-      this.onChangeCityTo = this.onChangeCityTo.bind(this)
-      this.onChangeCityFrom = this.onChangeCityFrom.bind(this)
+  constructor(props) {
+    super(props)
+    this.onChangeCityTo = this.onChangeCityTo.bind(this)
+    this.onChangeCityFrom = this.onChangeCityFrom.bind(this)
 
-      this.state = {
-        cityFrom: 'Киев',
-        cityTo: 'Славутич',
-      }
-
+    this.state = {
+      cityFrom: 'Киев',
+      cityTo: 'Славутич',
+      data: [
+        {value: 'Славутич', props: { disabled: true }}, 
+        {value: 'Чернигов', props: { disabled: false }}, 
+        {value: 'Киев', props: { disabled: true }}, 
+        {value: 'Любеч', props: { disabled: false }}, 
+        {value: 'Мнёв', props: { disabled: false }}, 
+        {value: 'Неданчичи', props: { disabled: false }}
+        ],
     }
+  }
 
+  disableItem (item, data) {
+    //if(this.state.data.value = data)
+
+  }
 
   _onPressButton(){
     temp1 = this.state.cityFrom
     temp2 = this.state.cityTo
     this.setState({cityFrom: temp2})
     this.setState({cityTo: temp1})
- 
+    console.log(this.state.filter(({ ref }) => ref && ref.isFocused()))
+
     }
 
+
+
   onChangeCityFrom (data) {
+    enable = this.state.cityFrom
+    item = []
+    item = this.state.data
     this.setState({cityFrom: data})
-    console.log(this.state.cityFrom)
+
+    disabledItem = item.forEach((value, index, ar) =>  {  
+      if(value.value == data) {
+        value.props.disabled = true
+        console.log('city: '+value.value+' -> '+value.props.disabled)
+      }     
+    })
+    //this.setState({data:disabledItem})
+    enabledItem = item.forEach((value, index, ar) =>  {  
+      if(value.value == enable) {
+        value.props.disabled = false
+        console.log('city: '+value.value+' -> '+value.props.disabled)
+      }     
+    })
+    //this.setState({data:enabledItem})
+
+    
   }
 
   onChangeCityTo (data) {
+    enable = this.state.cityTo
+    item = []
+    item = this.state.data
     this.setState({cityTo: data})
-    console.log(this.state.cityTo)
+
+    disabledItem = item.forEach((value, index, ar) =>  {  
+      if(value.value == data) {
+        value.props.disabled = true
+        console.log('city: '+value.value+' -> '+value.props.disabled)
+      }     
+    })
+    //this.setState({data:disabledItem})
+    enabledItem = item.forEach((value, index, ar) =>  {  
+      if(value.value == enable) {
+        value.props.disabled = false
+        console.log('city: '+value.value+' -> '+value.props.disabled)
+      }     
+    })
+    //this.setState({data:enabledItem})
   }
 
 
   render() {
 
-    let data = [
-          {value: 'Славутич',}, 
-          {value: 'Чернигов',}, 
-          {value: 'Киев',}, 
-          {value: 'Любеч',}, 
-          {value: 'Мнёв',}, 
-          {value: 'Неданчичи',}
-          ];
-    let position = (-1)*data.length
-    let count = data.length
+    let position = (-1)*this.state.data.length
+    let count = this.state.data.length
 
     return (
       <View style={styles.dropDown}>
@@ -56,11 +98,12 @@ export class DirectionBus extends Component {
               value={this.state.cityFrom}
               label={cityFromText}
               onChangeText={this.onChangeCityFrom}
-              data={data}
+              data={this.state.data}
               selectedItemColor={'purple'}
               dropdownOffset= {{top :12, left: 0}}
               dropdownPosition = {position}
               itemCount = {count}
+              propsExtractor={({ props }, index) => props}
             />
         </View>
 
@@ -72,11 +115,12 @@ export class DirectionBus extends Component {
               value={this.state.cityTo}
               label={cityToText}
               onChangeText={this.onChangeCityTo}
-              data={data}
+              data={this.state.data}
               selectedItemColor={'purple'}
               dropdownOffset= {{top :12, left: 0}}
               dropdownPosition = {position}
               itemCount = {count}
+              propsExtractor={({ props }, index) => props}
             />
         </View>
     </View>
